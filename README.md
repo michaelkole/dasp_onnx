@@ -8,5 +8,3 @@ qa_pipeline.ipynb: Extractive QA model inference pipeline
 share_model_hf.ipynb: Push ONNX model to HuggingFace
 
 onnx_import.ipynb: Download ONNX model and run inference
-
-square_skills/*: List of Square skills (https://square.ukp-lab.de/docs/home/components/skills/#publicly-available-skills)
