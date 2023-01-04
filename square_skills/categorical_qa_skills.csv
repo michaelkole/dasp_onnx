@@ -1,3 +1,0 @@
-Name,Retrieval Model,Datastore,Reader Model,Reader Adapter,Type,Code
-BoolQ BERT Adapter,,,bert-base-uncased,boolq,categorical,code
-BoolQ RoBERTa Adapter,,,roberta-base,boolq,categorical,code
