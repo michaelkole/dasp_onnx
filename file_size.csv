@@ -1,0 +1,93 @@
+reader,adapter,model_name,file_size
+bert-base-uncased,boolq,Base,423.32056427001953
+bert-base-uncased,boolq,Base Quantized,388.361328125
+bert-base-uncased,boolq,ONNX,421.37060832977295
+bert-base-uncased,boolq,ONNX Quant,106.04025077819824
+roberta-base,boolq,Base,481.16434478759766
+roberta-base,boolq,Base Quantized,446.2051086425781
+roberta-base,boolq,ONNX,479.23046493530273
+roberta-base,boolq,ONNX Quant,120.51875019073486
+bert-base-uncased,cosmos_qa,Base,423.31763076782227
+bert-base-uncased,cosmos_qa,Base Quantized,388.361328125
+bert-base-uncased,cosmos_qa,ONNX,421.3655071258545
+bert-base-uncased,cosmos_qa,ONNX Quant,106.03451919555664
+roberta-base,cosmos_qa,Base,481.1614112854004
+roberta-base,cosmos_qa,Base Quantized,446.2051086425781
+roberta-base,cosmos_qa,ONNX,479.2253541946411
+roberta-base,cosmos_qa,ONNX Quant,120.5130090713501
+bert-base-uncased,drop,Base,421.06763458251953
+bert-base-uncased,drop,Base Quantized,388.361328125
+bert-base-uncased,drop,ONNX,419.113392829895
+bert-base-uncased,drop,ONNX Quant,105.46475887298584
+roberta-base,drop,Base,478.91141510009766
+roberta-base,drop,Base Quantized,446.2051086425781
+roberta-base,drop,ONNX,476.97324085235596
+roberta-base,drop,ONNX Quant,119.9432725906372
+bert-base-uncased,hotpotqa,Base,421.06763458251953
+bert-base-uncased,hotpotqa,Base Quantized,388.361328125
+bert-base-uncased,hotpotqa,ONNX,419.11475467681885
+bert-base-uncased,hotpotqa,ONNX Quant,105.46763134002686
+roberta-base,hotpotqa,Base,478.91141510009766
+roberta-base,hotpotqa,Base Quantized,446.2051086425781
+roberta-base,hotpotqa,ONNX,476.9746026992798
+roberta-base,hotpotqa,ONNX Quant,119.94614505767822
+bert-base-uncased,multirc,Base,423.32056427001953
+bert-base-uncased,multirc,Base Quantized,388.361328125
+bert-base-uncased,multirc,ONNX,421.3712968826294
+bert-base-uncased,multirc,ONNX Quant,106.04170417785645
+roberta-base,multirc,Base,481.16434478759766
+roberta-base,multirc,Base Quantized,446.2051086425781
+roberta-base,multirc,ONNX,479.231143951416
+roberta-base,multirc,ONNX Quant,120.5201940536499
+bert-base-uncased,newsqa,Base,421.06763458251953
+bert-base-uncased,newsqa,Base Quantized,388.361328125
+bert-base-uncased,newsqa,ONNX,419.11407375335693
+bert-base-uncased,newsqa,ONNX Quant,105.46619510650635
+roberta-base,newsqa,Base,478.91141510009766
+roberta-base,newsqa,Base Quantized,446.2051086425781
+roberta-base,newsqa,ONNX,476.97392177581787
+roberta-base,newsqa,ONNX Quant,119.94470882415771
+bert-base-uncased,quail,Base,423.31763076782227
+bert-base-uncased,quail,Base Quantized,388.361328125
+bert-base-uncased,quail,ONNX,421.3640995025635
+bert-base-uncased,quail,ONNX Quant,106.03137397766113
+roberta-base,quail,Base,481.1614112854004
+roberta-base,quail,Base Quantized,446.2051086425781
+roberta-base,quail,ONNX,479.2239465713501
+roberta-base,quail,ONNX Quant,120.50986385345459
+roberta-base,quartz,Base,481.1614112854004
+roberta-base,quartz,Base Quantized,446.2051086425781
+roberta-base,quartz,ONNX,479.22429847717285
+roberta-base,quartz,ONNX Quant,120.51064968109131
+bert-base-uncased,quoref,Base,421.06763458251953
+bert-base-uncased,quoref,Base Quantized,388.361328125
+bert-base-uncased,quoref,ONNX,419.11407375335693
+bert-base-uncased,quoref,ONNX Quant,105.46619510650635
+roberta-base,quoref,Base,478.91141510009766
+roberta-base,quoref,Base Quantized,446.2051086425781
+roberta-base,quoref,ONNX,476.97392177581787
+roberta-base,quoref,ONNX Quant,119.94470882415771
+bert-base-uncased,race,Base,423.31763076782227
+bert-base-uncased,race,Base Quantized,388.361328125
+bert-base-uncased,race,ONNX,421.36515522003174
+bert-base-uncased,race,ONNX Quant,106.03373336791992
+roberta-base,race,Base,481.1614112854004
+roberta-base,race,Base Quantized,446.2051086425781
+roberta-base,race,ONNX,479.22500228881836
+roberta-base,race,ONNX Quant,120.51222324371338
+bert-base-uncased,squad,Base,421.06763458251953
+bert-base-uncased,squad,Base Quantized,388.361328125
+bert-base-uncased,squad,ONNX,419.113733291626
+bert-base-uncased,squad,ONNX Quant,105.4654769897461
+roberta-base,squad,Base,478.91141510009766
+roberta-base,squad,Base Quantized,446.2051086425781
+roberta-base,squad,ONNX,476.9735813140869
+roberta-base,squad,ONNX Quant,119.94399070739746
+bert-base-uncased,squad_v2,Base,421.06763458251953
+bert-base-uncased,squad_v2,Base Quantized,388.361328125
+bert-base-uncased,squad_v2,ONNX,419.11475467681885
+bert-base-uncased,squad_v2,ONNX Quant,105.46763134002686
+roberta-base,squad_v2,Base,478.91141510009766
+roberta-base,squad_v2,Base Quantized,446.2051086425781
+roberta-base,squad_v2,ONNX,476.9746026992798
+roberta-base,squad_v2,ONNX Quant,119.94614505767822
