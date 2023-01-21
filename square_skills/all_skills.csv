@@ -11,7 +11,7 @@ HotpotQA BERT Adapter,,,bert-base-uncased,hotpotqa,span-extraction,code
 HotpotQA RoBERTa Adapter,,,roberta-base,hotpotqa,span-extraction,code
 MultiRC BERT Adapter,,,bert-base-uncased,multirc,multiple-choice,code
 MultiRC RoBERTa Adapter,,,roberta-base,multirc,multiple-choice,code
-NarrativeQA BART Adapter,,,facebook/bart-base,narrativeqa,abstractive,code
+NarrativeQA BART Adapter,,,bart-base,narrativeqa,abstractive,code
 NewsQA BERT Adapter,,,bert-base-uncased,newsqa,span-extraction,code
 NewsQA RoBERTa Adapter,,,roberta-base,newsqa,span-extraction,code
 OpenBioASQ,BM25,Pubmed,bert-base-uncased,squad_v2,span-extraction,code
