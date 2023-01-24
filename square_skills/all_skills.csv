@@ -6,7 +6,7 @@ CommonsenseQA RoBERTa Adapter,,,roberta-base,commonsense_qa,multiple-choice,code
 CosmosQA BERT,,,bert-base-uncased,cosmos_qa,multiple-choice,code
 CosmosQA RoBERTa Adapter,,,roberta-base,cosmos_qa,multiple-choice,code
 DROP BERT Adapter,,,bert-base-uncased,drop,span-extraction,code
-DROP RoBERTa Adapter,,,roberta-base,drop,span-extraction,code
+DROP RoBERTa Adapter,,,roberta-base,drop,span-extractiron,code
 HotpotQA BERT Adapter,,,bert-base-uncased,hotpotqa,span-extraction,code
 HotpotQA RoBERTa Adapter,,,roberta-base,hotpotqa,span-extraction,code
 MultiRC BERT Adapter,,,bert-base-uncased,multirc,multiple-choice,code

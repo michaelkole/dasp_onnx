@@ -7,12 +7,11 @@ DROP BERT Adapter,,,bert-base-uncased,drop,span-extraction,code
 DROP RoBERTa Adapter,,,roberta-base,drop,span-extraction,code
 HotpotQA BERT Adapter,,,bert-base-uncased,hotpotqa,span-extraction,code
 HotpotQA RoBERTa Adapter,,,roberta-base,hotpotqa,span-extraction,code
-MultiRC BERT Adapter,,,bert-base-uncased,multirc,multiple-choice,code
-MultiRC RoBERTa Adapter,,,roberta-base,multirc,multiple-choice,code
 NewsQA BERT Adapter,,,bert-base-uncased,newsqa,span-extraction,code
 NewsQA RoBERTa Adapter,,,roberta-base,newsqa,span-extraction,code
 QuAIL BERT Adapter,,,bert-base-uncased,quail,multiple-choice,code
 QuAIL RoBERTa Adapter,,,roberta-base,quail,multiple-choice,code
+QuaRTz BERT Adapter,,,bert-base-uncased,quartz,multiple-choice,code
 QuaRTz RoBERTa Adapter,,,roberta-base,quartz,multiple-choice,code
 Quoref BERT Adapter,,,bert-base-uncased,quoref,span-extraction,code
 Quoref RoBERTa Adapter,,,roberta-base,quoref,span-extraction,code
@@ -23,3 +22,5 @@ SQuAD 1.1 RoBERTa Adapter,,,roberta-base,squad,span-extraction,code
 SQuAD 2.0 BERT Adapter,,,bert-base-uncased,squad_v2,span-extraction,code
 SQuAD 2.0 RoBERTa Adapter,,,roberta-base,squad_v2,span-extraction,code
 NarrativeQA BART Adapter,,,facebook/bart-base,narrativeqa,abstractive,code
+Social-IQA BERT Adapter,,,bert-base-uncased,social_i_qa,multiple-choice,code
+Social-IQA RoBERTa Adapter,,,roberta-base,social_i_qa,multiple-choice,code
