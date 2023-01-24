@@ -1,33 +1,24 @@
-from datasets import load_dataset, load_metric
-import evaluate
+from datasets import load_dataset
 from transformers import AutoModelWithHeads, AutoTokenizer
-from transformers.models.bert import BertOnnxConfig
-from transformers.onnx import OnnxConfig, validate_model_outputs, export
-
-import onnx
-from onnxruntime.quantization import quantize_dynamic, QuantType
-from onnxruntime import InferenceSession
+from huggingface_hub import hf_hub_download
 import onnxruntime
-
-
-import time
-from typing import Tuple, Union
 import torch
+from tqdm import tqdm
+from multiprocess import Process
 import numpy as np
 import pandas as pd
 import os
-from typing import Mapping, OrderedDict
-from tqdm import tqdm
-from multiprocess import Process
-
-from huggingface_hub import hf_hub_download
-
 
 # Load needed skills by skilltype (span-extraction, multiple-choice, categorical, abstractive)
 def load_skills(skill_type, path="square_skills/impl_skills.csv"):
     all_skills = pd.read_csv(path)
     skills = all_skills[all_skills["Type"] == skill_type]
     return skills
+
+#Choose Skill
+skill =  "multiple-choice"
+skills_df = load_skills(skill)
+
 
 def load_onnx_model(model_onnx, model_onnx_quant, as_list=False):
     onnx_model = onnxruntime.InferenceSession(model_onnx, providers=["CPUExecutionProvider"])
@@ -92,8 +83,6 @@ def mc_onnx_inference(onnx_model, tokenizer, context, question, choices):
     
     return answer, outputs[0]
 
-
-
 def run_inf(
         preped_data_set, modelname, run_func, input_model, tokenizer,
 
@@ -123,12 +112,8 @@ def run_inf(
             example_id, data_set_name, question, context[:90], choices, answer_dataset
         ]
     
-    save_df(df, f"temp/{adapter}_{reader}_{modelname}.csv")
+    save_df(df, f"temp/{skill}/{adapter}_{reader}_{modelname}.csv")
     
-
-#Choose Skill
-skill =  "multiple-choice"
-skills_df = load_skills(skill)
 
 def load_and_prep_dataset(data_set_name, example_amount=0):
     if example_amount == 0:
@@ -230,27 +215,25 @@ for adapter in skills_df["Reader Adapter"].unique():
         model_onnx, model_onnx_quant = repo_builder(reader, adapter)
         onnx_model, onnx_model_opt, onnx_model_quant, onnx_model_quant_opt = load_onnx_model(model_onnx, model_onnx_quant)
 
+        #Run infernece in parallel.
 
         base_p = Process(target=run_inf, args=(preped_data_set, "base", mc_base_inference, base_model, tokenizer))
         quant_base_p = Process(target=run_inf, args=(preped_data_set, "quant_base", mc_base_inference, quantized_base_model, tokenizer))
         onnx_p = Process(target=run_inf, args=(preped_data_set, "onnx", mc_onnx_inference, onnx_model, tokenizer))
-        onn_opt_p = Process(target=run_inf, args=(preped_data_set, "onnx_opt", mc_onnx_inference, onnx_model_opt, tokenizer))
+        onnx_opt_p = Process(target=run_inf, args=(preped_data_set, "onnx_opt", mc_onnx_inference, onnx_model_opt, tokenizer))
         quant_onnx_p = Process(target=run_inf, args=(preped_data_set, "quant_onnx", mc_onnx_inference, onnx_model_quant, tokenizer))
         quant_onnx_opt_p = Process(target=run_inf, args=(preped_data_set, "quant_onnx_opt", mc_onnx_inference, onnx_model_quant_opt, tokenizer))
     
         base_p.start()
         quant_base_p.start()
         onnx_p.start()
-        onn_opt_p.start()
+        onnx_opt_p.start()
         quant_onnx_p.start()
         quant_onnx_opt_p.start()
 
         base_p.join()
         quant_base_p.join()
         onnx_p.join()
-        onn_opt_p.join()
+        onnx_opt_p.join()
         quant_onnx_p.join()
         quant_onnx_opt_p.join()
-
-        break #TODO remove
-    break #TODO remove
