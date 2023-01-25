@@ -20,6 +20,9 @@ def load_skills(skill_type, path="square_skills/impl_skills.csv"):
     skills = all_skills[all_skills["Type"] == skill_type]
     return skills
 
+skill =  "span-extraction"
+skills_df = load_skills(skill)
+
 def load_onnx_model(model_onnx, model_onnx_quant, as_list=False):
     onnx_model = onnxruntime.InferenceSession(model_onnx, providers=["CPUExecutionProvider"])
     onnx_model_quant = onnxruntime.InferenceSession(model_onnx_quant, providers=["CPUExecutionProvider"])
@@ -76,9 +79,6 @@ def onnx_inference(onnx_model, tokenizer, question, context):
     return tokenizer.decode(inputs['input_ids'][0, ans_start:ans_end])
 
 
-skill =  "span-extraction"
-skills_df = load_skills(skill)
-
 def run_inf(
         data, modelname, run_func, model, tokenizer, adapter
     ):
@@ -124,7 +124,7 @@ def run_inf(
     save_df(df, f"temp/{skill}/{adapter}_{reader}_{modelname}.csv")
 
 
-example_amount = 10
+example_amount = 0
 
 skipping_adapters = ["newsqa", "hotpotqa"] 
 for adapter in skills_df["Reader Adapter"].unique():
@@ -175,7 +175,7 @@ for adapter in skills_df["Reader Adapter"].unique():
         onnx_opt_p.start()
         quant_onnx_p.start()
         quant_onnx_opt_p.start()
-
+        
         base_p.join()
         quant_base_p.join()
         onnx_p.join()
