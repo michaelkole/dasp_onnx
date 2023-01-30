@@ -182,7 +182,7 @@ def load_and_prep_dataset(data_set_name, example_amount=0):
 
 example_amount = 0
 
-skipping_adapters = [] 
+skipping_adapters = ["race", "social_i_qa"] 
 for adapter in skills_df["Reader Adapter"].unique():
 
     if adapter in skipping_adapters:
