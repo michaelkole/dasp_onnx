@@ -63,7 +63,7 @@ def base_model_inference(model, tokenizer, question, context):
 
     start_idx = torch.argmax(outputs.start_logits, axis=1).numpy()[0]
     end_idx = (torch.argmax(outputs.end_logits, axis=1) + 1).numpy()[0]
-    return tokenizer.decode(inputs['input_ids'][0, start_idx:end_idx])
+    return tokenizer.decode(inputs['input_ids'][0, start_idx:end_idx]), start_idx, end_idx
 
 
 def onnx_inference(onnx_model, tokenizer, question, context):
@@ -76,7 +76,7 @@ def onnx_inference(onnx_model, tokenizer, question, context):
     ans_start = np.argmax(start_scores)
     ans_end = np.argmax(end_scores)+1
 
-    return tokenizer.decode(inputs['input_ids'][0, ans_start:ans_end])
+    return tokenizer.decode(inputs['input_ids'][0, ans_start:ans_end]), ans_start, ans_end
 
 
 def run_inf(
@@ -86,7 +86,7 @@ def run_inf(
     df = pd.DataFrame(columns=[
             "skill", "reader", "adapter", "modelname",
             "timestamp", 
-            "answer", 
+            "answer", "start", "end", 
             "data_id", "dataset", 
             "question", "context", "answer_dataset"
         ])
@@ -110,13 +110,13 @@ def run_inf(
         context = example[context_name]
         answer_dataset = example[answers_name]
         
-        prediction = run_func(model, tokenizer, question, context)
+        prediction, start, end = run_func(model, tokenizer, question, context)
         
         data_set_name = adapter
         df.loc[len(df)] = [
             skill, reader, adapter, modelname,
             pd.Timestamp.now(),
-            prediction, 
+            prediction, start, end,
             example_id, data_set_name, 
             question, context[:90], answer_dataset
         ]

@@ -131,3 +131,6 @@ dmypy.json
 # Archiv
 /archiv
 /onnx
+/temp
+/logs
+/eval_files
